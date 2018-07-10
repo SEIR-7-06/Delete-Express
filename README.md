@@ -21,8 +21,8 @@
 ## Delete
 
 
-### This afternoon your going to try to complete the task before we do it together
-What you are going to do is create a delete route so our app can delete some fruit follow these steps:
+### This afternoon you're going to try to complete the task before we do it together
+What you are going to do, is create a delete route so our app can delete some fruit follow these steps:
 1.  Create a `delete` route in your `server.js` file.  How do I do this? Look at the express docs, look at stackoverflow, look at the other methods. Remember everything is an object, so maybe it has something like a `delete` method.
 2.  inside this route you should remove a fruit from our `fruits` array.  Maybe look up `splice`
 3.  Next create a form to submit a delete request on the `index.ejs` page for each fruit.  (Does the form have to be inside or outside the loop?)
