@@ -168,7 +168,7 @@ Inside our `index.ejs` file, add a link to our edit route which passes in the in
     <body>
         <h1>Fruits index page</h1>
         <ul>
-            <% for(var i = 0; i < fruits.length; i++){ %>
+            <% for(let i = 0; i < fruits.length; i++){ %>
                 <li>
 			The <a href="/fruits/<%=i%>"><%=fruits[i].name; %></a> is  <%=fruits[i].color; %>.
 			<% if(fruits[i].readyToEat === true){ %>
@@ -250,7 +250,7 @@ Now, in our app.js file, add:
 
 ```javascript
 //include the method-override package
-var methodOverride = require('method-override');
+const methodOverride = require('method-override');
 //...
 //after app has been defined
 //use methodOverride.  We'll be adding a query parameter to our edit form named _method
