@@ -31,7 +31,7 @@ In `controllers/fruits_controllers.js`:
 // this route will catch DELETE requests to /fruits/anyValue
 // and, after deleting data, respond by redirecting
 // the user to the index route
-router.delete('/fruits/:fruitIndex', (req, res) => {
+router.delete('/:fruitIndex', (req, res) => {
 	 // remove the item from the array
     fruits.splice(req.params.fruitIndex, 1);
     // redirect back to index route
@@ -131,7 +131,7 @@ We're going to need to make three changes: create an edit view, create a link to
 // edit route
 // this route will catch GET requests to /fruits/anyValue/editForm
 // and respond by rendering a form together with a fruit object
-router.get('/fruits/:fruitIndex/editForm', (req, res) => {
+router.get('/:fruitIndex/editForm', (req, res) => {
 	res.render('edit.ejs', {
         // the fruit object
         oneFruit: fruits[req.params.fruitIndex],
@@ -222,7 +222,7 @@ Our final route will handle requests coming in when our edit form is submitted. 
 In `controllers/fruits_controllers.js`:
 
 ```js
-router.put('/fruits/:fruitIndex', (req, res) => {
+router.put('/:fruitIndex', (req, res) => {
     if(req.body.readyToEat === 'on'){
         req.body.readyToEat = true;
     } else {
