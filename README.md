@@ -31,9 +31,9 @@ In `controllers/fruits_controllers.js`:
 // this route will catch DELETE requests to /fruits/anyValue
 // and, after deleting data, respond by redirecting
 // the user to the index route
-router.delete('/fruits/:index', (req, res) => {
+router.delete('/fruits/:fruitIndex', (req, res) => {
 	 // remove the item from the array
-    fruits.splice(req.params.index, 1);
+    fruits.splice(req.params.fruitIndex, 1);
     // redirect back to index route
 	res.redirect('/fruits');
 });
@@ -61,7 +61,9 @@ Inside `views/index.ejs`, add a form with just a delete button.
         <ul>
             <% for(let i = 0; i < allFruits.length; i++){ %>
                 <li>
-                    <%= allFruits[i].name %>
+                    <a href="/fruits/<%= i %>">
+                        <%= allFruits[i].name %>
+                    </a>
                     <!--  ADD DELETE FORM HERE-->
                     <form action="/fruits/<%= i %>" method="POST">
                         <input type="submit" value="DELETE"/>
@@ -193,7 +195,9 @@ We'll come back and fill in the form's `action` and `method` later.
         <ul>
             <% for(let i = 0; i < allFruits.length; i++){ %>
                 <li>
-                    <%= allFruits[i].name %>
+                    <a href="/fruits/<%= i %>">
+                        <%= allFruits[i].name %>
+                    </a>
                     <form action="/fruits/<%= i %>" method="POST">
                         <input type="submit" value="DELETE"/>
                     </form>
